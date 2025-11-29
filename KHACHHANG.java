@@ -37,15 +37,15 @@ public class KHACHHANG {
     }
 
     public void Nhap(){
-        System.out.println("Nhập mã khách hàng: ");
+        System.out.print("Nhập mã khách hàng: ");
         this.maKH = sc.nextLine();
-        System.out.println("Nhập tên khách hàng: ");
+        System.out.print("Nhập tên khách hàng: ");
         this.tenKH = sc.nextLine();
-        System.out.println("Nhập số điện thoại: ");
+        System.out.print("Nhập số điện thoại: ");
         this.SDT=sc.nextLine();
-        System.out.println("Nhập số CCCD: ");
+        System.out.print("Nhập số CCCD: ");
         this.soCCCD=sc.nextLine();
-        System.out.println("Nhập địa chỉ: ");
+        System.out.print("Nhập địa chỉ: ");
         this.diaChi=sc.nextLine();
     }
 

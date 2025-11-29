@@ -53,14 +53,14 @@ public class Main {
     // HÀM HỖ TRỢ: Tìm kiếm DATPHONG
     private static DATPHONG timKiemDatPhong(String maDatPhong, List<DATPHONG> danhSach) {
         for (DATPHONG dp : danhSach) {
-            // Cần kiểm tra dp.getMaDatPhong() có null không nếu trong DATPHONG không được kiểm soát
+            // Cần kiểm tra dp.getMaDatPhong() có null không
             if (dp.getMaDatPhong() != null && dp.getMaDatPhong().equals(maDatPhong)) {
                 return dp;
             }
         }
         return null;
     }
-    // MENU QUẢN LÝ PHÒNG (Giữ nguyên)
+
     private static void menuPhong(Scanner sc, QUANLYPHONG qlPhong) {
         while (true) {
             System.out.println("\n--- QUẢN LÝ PHÒNG ---");
@@ -80,7 +80,7 @@ public class Main {
             }
             switch (chon) {
                 case 1:
-                    System.out.println("Chọn loại phòng (1: Phòng đơn, 2: Phòng đôi): ");
+                    System.out.println("Chọn phòng (1: Phòng đơn, 2: Phòng đôi): ");
                     int loai;
                     try {
                         loai = Integer.parseInt(sc.nextLine());
@@ -111,7 +111,7 @@ public class Main {
                         break;
                     }
                     PHONG pMoi;
-                    System.out.println("Chọn loại phòng mới (1: Phòng đơn, 2: Phòng đôi): ");
+                    System.out.println("Chọn phòng mới (1: Phòng đơn, 2: Phòng đôi): ");
                     int loaiMoi;
                     try {
                         loaiMoi = Integer.parseInt(sc.nextLine());
@@ -141,7 +141,7 @@ public class Main {
             }
         }
     }
-    // MENU QUẢN LÝ KHÁCH HÀNG (ĐÃ SỬA LỖI LOGIC ĐẶT PHÒNG)
+
     private static void menuKhachHang(Scanner sc, QUANLYKHACHHANG qlKH, QUANLYPHONG qlPhong, List<DATPHONG> danhSachDatPhong, QUANLYNHANVIEN qlNV) {
         while (true) {
             System.out.println("\n--- QUẢN LÝ KHÁCH HÀNG ---");
@@ -162,16 +162,16 @@ public class Main {
                 continue;
             }
             switch (chon) {
-                case 1: // Thêm KH
+                case 1:
                     KHACHHANG kh = new KHACHHANG();
                     kh.Nhap();
                     qlKH.themKhachHang(kh);
                     break;
-                case 2: // Xóa KH
+                case 2:
                     System.out.print("Nhập mã khách hàng cần xóa: ");
                     qlKH.xoaKhachHang(sc.nextLine());
                     break;
-                case 3: // Cập nhật KH
+                case 3:
                     System.out.print("Nhập mã khách hàng cần cập nhật: ");
                     String maCapNhat = sc.nextLine();
                     KHACHHANG capnhatKH = qlKH.timKiem(maCapNhat);
@@ -183,7 +183,7 @@ public class Main {
                     khMoi.Nhap();
                     qlKH.capNhatKhachHang(maCapNhat, khMoi);
                     break;
-                case 4: // Tìm KH
+                case 4:
                     System.out.print("Nhập mã khách hàng cần tìm: ");
                     KHACHHANG khTim = qlKH.timKiem(sc.nextLine());
                     // Cần xử lý trường hợp khTim.toString() không tồn tại nếu không có @Override trong KHACHHANG
@@ -191,10 +191,10 @@ public class Main {
                         khTim.hienThiThongTin();
                     else System.out.println("Không tìm thấy khách hàng!");
                     break;
-                case 5: // Hiển thị tất cả
+                case 5:
                     qlKH.hienThiTatCa();
                     break;
-                case 6: // Đặt phòng
+                case 6:
                     // 1. Kiểm tra Khách hàng
                     System.out.print("Nhập mã khách hàng đặt phòng: ");
                     String maKH = sc.nextLine();
@@ -212,7 +212,7 @@ public class Main {
                         break;
                     }
                     if (p.getTrangThai().equalsIgnoreCase("Da dat")) {
-                        System.out.println("Lỗi: Phòng đang có khách!");
+                        System.out.println("Lỗi: Phòng đã được đặt!");
                         break;
                     }
                     // 3. Kiểm tra Nhân viên xử lý (Có thể bỏ qua nếu không cần thiết)
@@ -223,7 +223,7 @@ public class Main {
                     }
                     // 4. Nhập thông tin ĐẶT PHÒNG
                     DATPHONG dp = new DATPHONG();
-                    dp.Nhap(); // Nhập Mã ĐP, Ngày đến, Ngày đi, Tiền cọc (theo code hiện tại của bạn)
+                    dp.Nhap();
                     // 5. Kiểm tra trùng Mã Đặt phòng
                     if (timKiemDatPhong(dp.getMaDatPhong(), danhSachDatPhong) != null) {
                         System.out.println("Lỗi: Mã đặt phòng này đã tồn tại. Thử lại.");
@@ -233,7 +233,6 @@ public class Main {
                     dp.setKh(khDat);
                     dp.setP(p);
                     dp.setNv(nvXuLy); // Có thể là null
-
                     // 7. Lưu và Cập nhật trạng thái
                     danhSachDatPhong.add(dp);
                     khDat.themDatPhongVaoLichSu(dp);
@@ -256,7 +255,7 @@ public class Main {
             }
         }
     }
-    // MENU QUẢN LÝ NHÂN VIÊN (Giữ nguyên)
+
     private static void menuNhanVien(Scanner sc, QUANLYNHANVIEN qlNV) {
         while (true) {
             System.out.println("\n--- QUẢN LÝ NHÂN VIÊN ---");
@@ -311,7 +310,7 @@ public class Main {
             }
         }
     }
-    // MENU QUẢN LÝ HÓA ĐƠN (ĐÃ SỬA LỖI NULL POINTER VÀ LOGIC)
+
     private static void menuHoaDon(Scanner sc, QUANLYHOADON qlHD, QUANLYKHACHHANG qlKH, QUANLYNHANVIEN qlNV, QUANLYPHONG qlPhong, List<DATPHONG> danhSachDatPhong) {
         while (true) {
             System.out.println("\n--- QUẢN LÝ HÓA ĐƠN ---");

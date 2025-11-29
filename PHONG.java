@@ -31,13 +31,13 @@ public abstract class PHONG {
     }
 
     public void Nhap(){
-        System.out.println("Nhập mã phòng: ");
+        System.out.print("Nhập mã phòng: ");
         this.maPhong = sc.nextLine();
-        System.out.println("Nhập loại phòng: ");
+        System.out.print("Nhập loại phòng: ");
         this.loaiPhong = sc.nextLine();
-        System.out.println("nhập giá cơ bản: ");
+        System.out.print("nhập giá cơ bản: ");
         this.giaCoBan = Double.parseDouble(sc.nextLine());
-        System.out.println("Nhập trạng thái: ");
+        System.out.print("Nhập trạng thái: ");
         this.trangThai = sc.nextLine();
     }
 

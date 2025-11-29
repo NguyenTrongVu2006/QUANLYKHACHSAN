@@ -14,7 +14,7 @@ public class PHONGDOI extends PHONG{
     @Override
     public void Nhap(){
         super.Nhap();
-        System.out.println("Nhập số người tối đa: ");
+        System.out.print("Nhập số người: ");
         this.soNguoi = Integer.parseInt(sc.nextLine());
     }
 

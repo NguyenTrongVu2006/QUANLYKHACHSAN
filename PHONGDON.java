@@ -13,7 +13,7 @@ public class PHONGDON extends  PHONG{
     @Override
     public void Nhap(){
         super.Nhap();
-        System.out.println("Có phải là giường đơn: ");
+        System.out.print("Có phải là giường đơn: ");
         this.giuongDon = Boolean.parseBoolean(sc.nextLine());
     }
 

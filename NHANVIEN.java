@@ -27,15 +27,15 @@ public class NHANVIEN{
     }
 
     public void Nhap(){
-        System.out.println("Nhập mã nhân viên: ");
+        System.out.print("Nhập mã nhân viên: ");
         this.maNV = sc.nextLine();
-        System.out.println("Nhập tên nhân viên: ");
+        System.out.print("Nhập tên nhân viên: ");
         this.tenNV = sc.nextLine();
-        System.out.println("Chức vụ: ");
+        System.out.print("Chức vụ: ");
         this.chucVu = sc.nextLine();
-        System.out.println("Lương cơ bản: ");
+        System.out.print("Lương cơ bản: ");
         this.luongCoBan = Double.parseDouble(sc.nextLine());
-        System.out.println("Hệ số lương: ");
+        System.out.print("Hệ số lương: ");
         this.heSoLuong = Double.parseDouble(sc.nextLine());
     }
 
