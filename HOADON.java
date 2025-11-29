@@ -35,15 +35,15 @@ public class HOADON {
 
     public void Nhap(){
         try {
-            System.out.println("Nhập mã hóa đơn: ");
+            System.out.print("Nhập mã hóa đơn: ");
             this.maHoaDon = sc.nextLine();
-            System.out.println("Nhập ngày lập hóa đơn: ");
+            System.out.print("Nhập ngày lập hóa đơn: ");
             SimpleDateFormat d = new SimpleDateFormat("dd/MM/yyyy");
             Date ngay = d.parse(this.sc.nextLine());
             this.ngayLap = ngay;
-            System.out.println("Nhập trạng thái thanh toán: ");
+            System.out.print("Nhập trạng thái thanh toán: ");
             this.trangThaiTT = sc.nextLine();
-            System.out.println("Nhập phương thức thanh toán: ");
+            System.out.print("Nhập phương thức thanh toán: ");
             this.phuongThucTT = sc.nextLine();
         }
         catch (Exception ex){
